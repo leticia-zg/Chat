@@ -1,0 +1,301 @@
+/* Importando uma fonte mais bonita */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+
+/* Estilos principais */
+.chatbot {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  transition: background-color 0.3s ease;
+  font-family: 'Roboto', sans-serif; /* Fonte mais bonita */
+}
+
+.chatbot.dark {
+  background-color: #3a3a3a;
+  color: #f0f0f0; /* Texto claro no modo escuro */
+}
+
+.chatbot.light {
+  background-color: #f9f9f9;
+  color: #333333; /* Texto escuro no modo claro */
+}
+
+/* Estilo da barra de navegação */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px;
+  border-bottom: 1px solid #ddd;
+  gap: 20px;
+  flex-wrap: nowrap;
+}
+
+.logo-container {
+  display: flex;
+  justify-content: center;
+  flex-grow: 1;
+}
+
+.logo {
+  width: 200px;
+  height: auto;
+}
+
+.toggle-buttons, .response-toggle {
+  display: flex;
+  justify-content: center;
+  flex-grow: 1;
+  gap: 10px;
+}
+
+
+.response-toggle label {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+input[type="checkbox"] {
+  display: none;
+}
+
+.slider {
+  position: relative;
+  width: 40px;
+  height: 20px;
+  background-color: #ccc;
+  border-radius: 20px;
+  margin: 0 10px;
+  transition: background-color 0.3s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 16px;
+  width: 16px;
+  left: 2px;
+  bottom: 2px;
+  background-color: white;
+  border-radius: 50%;
+  transition: transform 0.3s;
+}
+
+input[type="checkbox"]:checked + .slider {
+  background-color: #00ff00; /* Verde limão para o slider */
+}
+
+input[type="checkbox"]:checked + .slider:before {
+  transform: translateX(20px);
+}
+
+.history-container {
+  margin-top: 20px; /* Espaçamento superior para a seção de histórico */
+  text-align: center; /* Centraliza o texto do título */
+}
+
+.history-title {
+  font-size: 24px; /* Tamanho da fonte do título */
+  margin-bottom: 20px; /* Espaçamento abaixo do título */
+}
+
+.history-button {
+  background-color: #f0f0f0; /* Cor de fundo sólida */
+  border: 1px solid #ccc; /* Borda sutil */
+  border-radius: 5px; /* Bordas arredondadas */
+  cursor: pointer; /* Cursor pointer para indicar que é clicável */
+  padding: 10px; /* Espaçamento interno */
+  margin: 10px 0; /* Margem vertical para espaçamento entre os botões */
+  font-size: 16px; /* Tamanho da fonte */
+  text-align: left; /* Alinha o texto à esquerda */
+  transition: background-color 0.3s; /* Transição suave para a cor de fundo */
+}
+
+/* Mensagem de boas-vindas */
+.welcome-message {
+  padding: 10px;
+  text-align: center;
+  font-weight: bold;
+  margin: 15px 0;
+  color: inherit; /* Adiciona cor conforme o tema */
+}
+
+/* Área de mensagens */
+.messages {
+  flex-grow: 1;
+  padding: 10px;
+  overflow-y: auto;
+}
+
+.message {
+  margin: 5px 0;
+  padding: 10px;
+  border-radius: 8px;
+  max-width: 80%;
+  word-wrap: break-word;
+}
+
+.user {
+  text-align: right;
+  background-color: #007bff;
+  color: white;
+  margin-left: auto;
+}
+
+.bot {
+  text-align: left;
+  background-color: #e0e0e0;
+  color: black;
+}
+
+/* Sugestões de mensagens */
+.suggestions {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin: 15px 0;
+  flex-wrap: wrap; /* Permite que as sugestões se movam para a linha seguinte se necessário */
+}
+
+.suggestion-button {
+  background-color: #f0f0f0;
+  border: 1px solid #ccc;
+  border-radius: 20px;
+  padding: 10px 15px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  color: #333; /* Cor escura no modo claro */
+  font-size: 16px; /* Tamanho de fonte maior para melhor legibilidade */
+  white-space: nowrap; /* Evita quebra de linha dentro dos botões */
+}
+
+.suggestion-button:hover {
+  background-color: #007bff;
+  color: white;
+}
+
+.suggestion-button.dark {
+  background-color: #4a4a4a; /* Botões mais escuros no modo dark */
+  color: #f0f0f0; /* Texto claro no modo dark */
+}
+
+.suggestion-button.dark:hover {
+  background-color: #0056b3;
+  color: white;
+}
+
+/* Área de input e botão de enviar */
+.input-container {
+  display: flex;
+  margin: 10px;
+  flex-wrap: wrap;
+}
+
+input {
+  flex-grow: 1;
+  padding: 12px; /* Aumenta o padding para maior destaque */
+  border: 1px solid #00ff00; /* Borda verde limão */
+  border-radius: 4px;
+  margin-right: 10px;
+  min-width: 250px;
+  background-color: #e0e0e0; /* Cor de fundo cinza claro para maior destaque */
+  color: #333; /* Texto escuro no input */
+  font-size: 16px; /* Aumenta o tamanho da fonte para melhor legibilidade */
+}
+
+input:focus {
+  outline: none;
+  background-color: #d0d0d0; /* Cor de fundo quando em foco */
+  box-shadow: 0 0 8px rgba(0, 123, 255, 0.6); /* Sombra mais pronunciada */
+}
+
+.icon-group {
+  display: flex;
+  gap: 10px; /* Espaçamento entre os ícones */
+}
+
+.icon-button {
+  
+  background: none; /* Remove o fundo do botão */
+  border: none; /* Remove a borda do botão */
+  cursor: pointer; /* Cursor de ponteiro */
+  padding: 10px; /* Adiciona um pouco de padding */
+}
+
+.icon-button img {
+  width: 24px; /* Defina a largura do ícone */
+  height: auto; /* Mantém a proporção da imagem */
+}
+
+button.enviar { /* Especifica o botão de enviar */
+  padding: 12px; /* Aumenta o padding para maior área clicável */
+  background-color: #007bff; /* Azul para o botão de enviar */
+  color: white; /* Texto branco */
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  flex-shrink: 0;
+  font-size: 16px; /* Tamanho de fonte maior para melhor legibilidade */
+  transition: background-color 0.3s ease;
+}
+
+button.enviar:hover {
+  background-color: #0056b3; 
+}
+
+button.enviar:focus {
+  outline: none;
+  box-shadow: 0 0 8px rgba(0, 123, 255, 0.6); /* Sombra quando em foco */
+}
+
+/* Responsividade */
+@media (max-width: 900px) {
+  .header {
+    flex-direction: row;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
+  .logo {
+    width: 120px;
+  }
+
+  .toggle-buttons, .response-toggle {
+    margin: 0 20px;
+    justify-content: center;
+    width: 100%;
+  }
+
+  .input-container {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  input, button {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+
+  .welcome-message {
+    font-size: 15px;
+  }
+
+  .suggestions {
+    display: flex;
+    flex-wrap: wrap; /* Permite que os botões se ajustem conforme o espaço disponível */
+    gap: 5px; /* Reduz o espaço entre os botões */
+    justify-content: flex-start; /* Mantém os itens alinhados no início */
+  }
+
+  .suggestion-button {
+    flex: 1 1 auto; /* Permite que os botões se expandam ou encolham conforme necessário */
+    max-width: 48%; /* Define a largura máxima para os botões, permitindo que dois sejam exibidos lado a lado */
+    padding: 8px 12px;
+    font-size: 14px; /* Ajusta o tamanho da fonte */
+  }
+}
